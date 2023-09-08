@@ -6,7 +6,7 @@ import Home from './src/screens/Home';
 import Sign from './src/screens/auth/Sign';
 import SignIn from './src/screens/auth/SignIn';
 
-
+const Stack = createStackNavigator();
 const App = () => {
   return (
     <>
