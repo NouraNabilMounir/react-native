@@ -74,6 +74,30 @@ const styles = StyleSheet.create({
     marginBottom:5,
     textAlign:'center',
   },
+  card:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  cardView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+   imageCard: {
+    width: 150,
+    height: 150,
+    resizeMode: 'contain',  // Adjust this as needed
+  },
+  textCard: {
+    textAlign: 'center',
+    fontSize: 20,
+  },
+  buttonCard: {
+    fontWeight: 'bold',
+    fontSize:20,
+    color:'#2BBDC4',
+    textAlign: 'center',
+  },
 });
 
 export default styles;

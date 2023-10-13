@@ -1,35 +1,65 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
-import { FlatList, View, Text } from 'react-native';
+import * as React from 'react';
+import { FlatList, View, Text , Button, Image} from 'react-native';
+import CustomCard from '../utilities/CustomCard';
+
 
 const data = [
-  { key: '1', text: 'Item 1' },
-  { key: '2', text: 'Item 2' },
-  { key: '3', text: 'Item 3' },
-  // Add more items as needed
+  {
+    id: '1',
+    imageUrl: 'https://reactnative.dev/docs/assets/p_cat1.png',
+  },
+  {
+    id: '2',
+    imageUrl: 'https://reactnative.dev/docs/assets/p_cat1.png',
+
+  },
+  {
+    id: '3',
+    imageUrl: 'https://reactnative.dev/docs/assets/p_cat1.png',
+  },
+];
+const data2 = [
+  {
+    id: '1',
+    imageUrl: 'https://legacy.reactjs.org/logo-og.png',
+    title: 'Card 1',
+  },
+  {
+    id: '2',
+    imageUrl: 'https://legacy.reactjs.org/logo-og.png',
+    title: 'Card 2',
+  },
+  {
+    id: '3',
+    imageUrl: 'https://legacy.reactjs.org/logo-og.png',
+    title: 'Card 3',
+  },
 ];
 
-const renderItem = ({ item }) => (
-  <View>
-    <Text>{item.text}</Text>
-  </View>
-);
 
-const Home = ({ navigation }) => {
-  const handleSignIn = () => {
-    navigation.navigate('Home');
-  };
+
+
+function Home ({ navigation }) {
   return (
     <View>
-    <Text>Sign-In Screen</Text>
-    <Button title="Sign" onPress={handleSignIn} />
     <FlatList
+      data={data}
+      keyExtractor={(item) => item.id}
+      renderItem={({ item }) => (
+        <CustomCard imageUrl={item.imageUrl} />
+      )}
+      horizontal={true}
     />
-    data={data}
-    renderItem={renderItem}
-    keyExtractor={(item) => item.key}
+    <FlatList
+      data={data2}
+      keyExtractor={(item) => item.id}
+      renderItem={({ item }) => (
+        <CustomCard imageUrl={item.imageUrl} title={item.title} />
+      )}
+    />
   </View>
-  )
+  );
 }
 
 export default Home;

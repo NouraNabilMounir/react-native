@@ -1,11 +1,11 @@
 /* eslint-disable prettier/prettier */
-import {React} from 'react';
-import {TouchableOpacity,View, Text, TextInput} from 'react-native';
+import * as React from 'react';
+import {TouchableOpacity,View, Text, TextInput, Button} from 'react-native';
 import {useState} from 'react';
 import styles from '../styles';
 
 
-const Sign = () => {
+function Sign  ({navigation}) {
     const [email, setEmail] = useState('');
     const [isValidEmail, setIsValidEmail] = useState(true);
     const [password, setPassword] = useState('');
@@ -27,19 +27,22 @@ const Sign = () => {
       setRepeatPassword(text);
       setPasswordsMatch(text === password);
     };
-    const handleButtonPress = () => {
-      if (isValidEmail) {
-        console.log('Valid email:', email);
-      } else {
-        console.log('Invalid email');
-      }
-      if (passwordsMatch) {
-        // Passwords match, perform your action here
-        console.log('Passwords match:', password);
-      } else {
-        console.log('Passwords do not match');
-      }
-    };
+    // const handleButtonPress = () => {
+    //   if (isValidEmail) {
+    //     console.log('Valid email:', email);
+    //   } else {
+    //     console.log('Invalid email');
+    //   }
+    //   if (passwordsMatch) {
+    //     // Passwords match, perform your action here
+    //     console.log('Passwords match:', password);
+    //   } else {
+    //     console.log('Passwords do not match');
+    //   }
+    //   if (isValidEmail && passwordsMatch){
+    //      navigation.navigate('Home');
+    //   }
+    // };
   return (
       <View style={styles.container}>
         <View style={styles.input}>
@@ -61,15 +64,15 @@ const Sign = () => {
         </View>
         </View>
         <View style={styles.input}>
-          <TouchableOpacity style={styles.loginBtn} onPress={handleButtonPress}>
-        <Text style={styles.textBtn}>Sign up</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-        <Text style={styles.textRead}>Read User License Agreement</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.loginBtn} onPress={()=> navigation.navigate('Home')}>
+            <Text style={styles.textBtn}>Sign up</Text>
+          </TouchableOpacity>
+          <TouchableOpacity>
+          <Text style={styles.textRead}>Read User License Agreement</Text>
+          </TouchableOpacity>
         </View>
       </View>
   );
-};
+}
 
 export default Sign;
